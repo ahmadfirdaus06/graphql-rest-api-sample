@@ -1,0 +1,38 @@
+type Query {
+  users(req: UserReq): UserRes
+}
+
+type Mutation {
+    upsertUser(req: UserMutationReq): UserMutationRes
+    deleteUser(req: UserMutationReq): UserMutationRes
+}
+
+type User {
+  uuid: ID
+  name: String
+  email: String
+}
+
+input UserReq {
+  uuid: ID
+  name: String
+  email: String
+}
+
+type UserRes {
+  data: [User]
+  message: String
+}
+
+input UserMutationReq {
+  uuid: ID
+  name: String
+  email: String
+}
+
+type UserMutationRes {
+  data: [User]
+  message: String
+}
+
+
